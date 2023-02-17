@@ -2,7 +2,7 @@ const express = require('express');
 require('dotenv').config();
 require('./models/db');
 const userRouter = require('./routes/user');
-
+const session = require('express-session');
 const User = require('./models/user');
 
 const app = express();
@@ -25,6 +25,15 @@ app.use(userRouter);
 // };
 
 // test('niraj@email.com', 'niraj12');
+
+app.use(session({
+  secret:'aaa',
+  resave:true,
+  secure:false,
+  saveUninitialized:false,
+}))
+
+
 
 app.get('/test', (req, res) => {
   res.send('Hello world');

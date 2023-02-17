@@ -23,8 +23,8 @@ const ImageUpload = props => {
         allowsEditing: true,
       });
 
-      if (!response.cancelled) {
-        setProfileImage(response.uri);
+      if (!response.canceled) {
+        setProfileImage(response.assets[0].uri);
       }
     }
   };
